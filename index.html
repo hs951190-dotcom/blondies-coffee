@@ -1,0 +1,1120 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hana's House — Japandi Tea Salon & Patisserie | Wasilla, AK</title>
+  <meta name="description" content="Wasilla's premier Japanese artisanal boba cafe & scratch dessert patisserie. Ceremonial matcha, brown sugar boba, and handmade crepe cakes at 609 S Knik Goose Bay Rd.">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            matchasage: {
+              300: '#A3C0A1',
+              400: '#8FA88D',
+              500: '#728E70',
+              600: '#556B54',
+              700: '#3C4D3C'
+            },
+            solaramber: {
+              400: '#FBBF24',
+              500: '#F59E0B',
+              600: '#D97706',
+              700: '#B45309'
+            },
+            midnightnavy: {
+              700: '#374151',
+              800: '#1F2937',
+              850: '#1A232E',
+              900: '#111827',
+              950: '#0A0F1A'
+            },
+            taroblush: {
+              400: '#C084FC',
+              500: '#B794F4',
+              600: '#9F7AEA'
+            },
+            sakurapink: {
+              400: '#FB7185',
+              500: '#F472B6',
+              600: '#DB2777'
+            },
+            alabaster: {
+              50: '#FCFDFC',
+              100: '#F7F9F7',
+              200: '#EEF2EE',
+              300: '#E5ECE5'
+            }
+          },
+          fontFamily: {
+            outfit: ['Outfit', 'system-ui', 'sans-serif'],
+            serif: ['Playfair Display', 'Georgia', 'serif'],
+            sans: ['Plus Jakarta Sans', 'system-ui', 'sans-serif'],
+            script: ['Caveat', 'cursive'],
+            mono: ['JetBrains Mono', 'monospace']
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Google Fonts: Outfit, Playfair Display, Plus Jakarta Sans, Caveat, JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=JetBrains+Mono:wght@400;500;600;700;800&family=Outfit:wght@400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Lucide Icons CDN -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <style>
+    :root {
+      --bg: #F7F9F7;
+      --surface: #FFFFFF;
+      --border: #E5ECE5;
+      --text: #18201B;
+      --text-muted: #556358;
+      --sage: #728E70;
+      --amber: #D97706;
+      --navy: #111827;
+      --sakura: #F472B6;
+    }
+    html.dark {
+      --bg: #0B0F0C;
+      --surface: #121813;
+      --border: #1B261D;
+      --text: #F9FAF9;
+      --text-muted: #94A396;
+      --sage: #A3C0A1;
+      --amber: #FBBF24;
+      --navy: #1E2A38;
+      --sakura: #FB7185;
+    }
+    * { box-sizing: border-box; }
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      transition: background-color 0.3s ease, color 0.3s ease;
+      overflow-x: hidden;
+    }
+    section { scroll-margin-top: 5.5rem; }
+
+    /* Custom Blur Glassmorphism */
+    .modal-backdrop-blur {
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+    }
+
+    /* Rice Paper Grain Texture */
+    .rice-paper-bg {
+      background-image: 
+        radial-gradient(rgba(114, 142, 112, 0.03) 1px, transparent 1px),
+        radial-gradient(rgba(114, 142, 112, 0.03) 1px, transparent 1px);
+      background-position: 0 0, 10px 10px;
+      background-size: 20px 20px;
+    }
+    html.dark .rice-paper-bg {
+      background-image: 
+        radial-gradient(rgba(163, 192, 161, 0.03) 1px, transparent 1px),
+        radial-gradient(rgba(163, 192, 161, 0.03) 1px, transparent 1px);
+      background-position: 0 0, 10px 10px;
+      background-size: 20px 20px;
+    }
+
+    .btn-japandi {
+      transition: transform 0.25s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.25s ease, background-color 0.25s ease;
+    }
+    .btn-japandi:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 24px -6px rgba(114, 142, 112, 0.3);
+    }
+
+    /* Custom Radio Buttons */
+    .selector-radio:checked + div {
+      border-color: var(--sage);
+      background-color: rgba(114, 142, 112, 0.1);
+    }
+    html.dark .selector-radio:checked + div {
+      border-color: var(--sage);
+      background-color: rgba(163, 192, 161, 0.1);
+    }
+  </style>
+</head>
+<body class="antialiased rice-paper-bg selection:bg-matchasage-500 selection:text-white">
+
+  <!-- ============ JAPANDI MASTHEAD ============ -->
+  <header class="fixed top-0 left-0 right-0 z-50 bg-[var(--bg)]/90 backdrop-blur-md border-b border-[var(--border)] transition-colors">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-24 flex items-center justify-between">
+      
+      <!-- Hana's Chef Girl Logo Lockup -->
+      <a href="#" class="flex items-center gap-4 group">
+        <div class="relative w-12 h-12 rounded-full border-2 border-matchasage-500 bg-white dark:bg-midnightnavy-850 flex items-center justify-center p-1.5 shadow-sm group-hover:rotate-6 transition-transform">
+          <!-- Stylized Smiling Chef Girl SVG -->
+          <svg viewBox="0 0 100 100" class="w-full h-full text-midnightnavy-900 dark:text-white fill-none stroke-current stroke-[2.5] stroke-linecap-round stroke-linejoin-round">
+            <!-- Wavy Chef Hat / Cloud Hair -->
+            <path d="M30 40 C20 40, 15 30, 25 20 C30 10, 45 10, 50 15 C55 10, 70 10, 75 20 C85 30, 80 40, 70 40" />
+            <!-- Face Outline -->
+            <path d="M30 40 C30 70, 70 70, 70 40" />
+            <!-- Little Wavy Hair Flips -->
+            <path d="M30 40 C20 45, 15 55, 25 60 M70 40 C80 45, 85 55, 75 60" />
+            <!-- Closed Smiling Eyes -->
+            <path d="M40 50 Q43 47 46 50 M54 50 Q57 47 60 50" />
+            <!-- Cute Smile -->
+            <path d="M45 60 Q50 65 55 60" />
+            <!-- Rosy Cheeks -->
+            <circle cx="36" cy="56" r="3" fill="#F472B6" stroke="none" />
+            <circle cx="64" cy="56" r="3" fill="#F472B6" stroke="none" />
+          </svg>
+        </div>
+
+        <div class="flex flex-col">
+          <div class="flex items-baseline gap-1.5">
+            <span class="font-outfit font-black text-2xl text-[var(--text)] tracking-tight">Hana's House</span>
+          </div>
+          <div class="flex items-center gap-2 mt-0.5">
+            <span class="text-[9px] font-mono uppercase tracking-[0.2em] text-matchasage-600 dark:text-matchasage-400 font-bold">Wasilla, AK</span>
+            <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+            <span id="mastheadStatusBadge" class="text-[9px] font-mono uppercase font-bold text-emerald-600 dark:text-emerald-400">Tea Room Open</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation -->
+      <nav class="hidden lg:flex items-center gap-6 text-xs font-mono uppercase tracking-wider font-bold text-[var(--text-muted)]">
+        <a href="#signature-boba" class="hover:text-matchasage-600 dark:hover:text-matchasage-400 transition-colors">01. Bubble Tea</a>
+        <a href="#layered-matcha" class="hover:text-matchasage-600 dark:hover:text-matchasage-400 transition-colors">02. Matcha Clouds</a>
+        <a href="#summer-slushies" class="hover:text-matchasage-600 dark:hover:text-matchasage-400 transition-colors">03. Slushies</a>
+        <a href="#patisserie" class="hover:text-matchasage-600 dark:hover:text-matchasage-400 transition-colors">04. French-Asian Patisserie</a>
+      </nav>
+
+      <!-- Utility Actions & Ticket Drawer -->
+      <div class="flex items-center gap-3">
+        <a href="tel:9072039789" class="hidden sm:inline-flex items-center gap-1.5 text-xs font-mono font-bold text-matchasage-700 dark:text-matchasage-400 bg-matchasage-500/10 px-4 py-2 rounded-full hover:bg-matchasage-600 hover:text-white transition-colors">
+          <i data-lucide="phone" class="w-3.5 h-3.5"></i> (907) 203-9789
+        </a>
+
+        <button id="themeToggle" aria-label="Toggle Night/Day Mode" class="w-10 h-10 rounded-full border border-[var(--border)] flex items-center justify-center hover:bg-black/5 dark:hover:bg-white/5 transition-colors">
+          <i data-lucide="sun" class="w-4 h-4 text-solaramber-500 dark:hidden"></i>
+          <i data-lucide="moon" class="w-4 h-4 text-matchasage-400 hidden dark:block"></i>
+        </button>
+
+        <button id="openTicketBtn" class="btn-japandi relative bg-midnightnavy-800 dark:bg-matchasage-600 text-white px-5 py-2.5 rounded-full font-mono text-xs font-bold uppercase tracking-wider flex items-center gap-2 shadow-md">
+          <i data-lucide="coffee" class="w-4 h-4 text-sakurapink-400 dark:text-white"></i>
+          <span class="hidden sm:inline">Hana's Slip</span>
+          <span id="ticketBadgeCount" class="px-1.5 py-0.5 rounded-full bg-sakurapink-500 text-white font-mono text-[10px] font-black">0</span>
+        </button>
+
+        <button id="mobileNavToggle" aria-label="Open Mobile Menu" class="lg:hidden w-10 h-10 rounded-full border border-[var(--border)] flex items-center justify-center">
+          <i data-lucide="menu" class="w-5 h-5"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Drawer -->
+    <div id="mobileMenu" class="hidden lg:hidden border-t border-[var(--border)] bg-[var(--surface)] px-6 py-5 space-y-3 font-mono text-xs uppercase tracking-wider font-bold">
+      <a href="#signature-boba" class="block py-1 hover:text-matchasage-600 mobile-nav-link">01. Signature Milk Teas & Boba</a>
+      <a href="#layered-matcha" class="block py-1 hover:text-matchasage-600 mobile-nav-link">02. Ceremonial Matcha & Fruit Teas</a>
+      <a href="#summer-slushies" class="block py-1 hover:text-matchasage-600 mobile-nav-link">03. Seasonal Slushies & June Specials</a>
+      <a href="#patisserie" class="block py-1 hover:text-matchasage-600 mobile-nav-link">04. Homemade Bakery & Patisserie</a>
+      <a href="#gallery" class="block py-1 hover:text-matchasage-600 mobile-nav-link">05. Knik Goose Bay Lounge Archive</a>
+      <div class="pt-3 border-t border-[var(--border)] flex flex-col gap-2">
+        <a href="tel:9072039789" class="flex items-center gap-2 text-matchasage-600 dark:text-matchasage-400 font-mono text-xs font-bold">
+          <i data-lucide="phone" class="w-4 h-4"></i> Phone-call pickup: (907) 203-9789
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ============ ASYMMETRICAL EDITORIAL HERO (65/35 SPLIT) ============ -->
+  <section class="relative pt-36 pb-20 md:pt-48 md:pb-28 border-b border-[var(--border)] overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Coordinates & Callout Strip -->
+      <div class="flex flex-wrap items-center justify-between gap-4 pb-6 mb-8 border-b border-[var(--border)] font-mono text-xs text-[var(--text-muted)]">
+        <div class="flex items-center gap-2">
+          <span class="w-2 h-2 rounded-full bg-matchasage-500 animate-pulse"></span>
+          <span class="tracking-widest uppercase font-bold text-matchasage-600 dark:text-matchasage-400">KNIK GOOSE BAY CORRIDOR 61.5721° N, 149.4601° W</span>
+        </div>
+        <div class="flex items-center gap-6">
+          <span>JAPANDI TEA SALON</span>
+          <span>STE F, WASILLA, AK</span>
+          <span class="text-solaramber-600 font-bold">907-203-9789</span>
+        </div>
+      </div>
+
+      <!-- 65/35 Asymmetrical Layout -->
+      <div class="grid lg:grid-cols-12 gap-12 items-start">
+        
+        <!-- 65% Left: Monumental Organic Typography -->
+        <div class="lg:col-span-7">
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-matchasage-500/30 bg-matchasage-500/10 text-xs font-mono font-semibold mb-6">
+            <span class="w-2 h-2 rounded-full bg-sakurapink-500"></span>
+            <span class="tracking-wider text-matchasage-600 dark:text-matchasage-400 font-bold">Wasilla's Zen Tea House & Patisserie</span>
+          </div>
+
+          <h1 class="font-outfit font-bold text-4xl sm:text-6xl lg:text-7xl leading-[1.05] tracking-tight mb-6 text-[var(--text)]">
+            Artisanal Bubble Tea, <br>
+            <span class="text-matchasage-600 dark:text-matchasage-400">Layered Matcha</span> & <br>
+            <span class="text-taroblush-500">French-Asian Bakery.</span>
+          </h1>
+
+          <p class="text-[var(--text-muted)] text-base sm:text-lg leading-relaxed max-w-xl mb-6 font-normal">
+            Wasilla's peaceful culinary escape at 609 S Knik Goose Bay Rd. From ceremonial iced matcha clouds and jasmine grape lychee smoothies to delicate mille-crepe cakes and rich Italian tiramisu, every sip and bite is crafted with mindful Japanese precision.
+          </p>
+
+          <!-- Calligraphy Script Accent -->
+          <p class="font-script text-2xl sm:text-3xl text-matchasage-600 dark:text-matchasage-400 mb-8 font-bold">
+            "Mindful moments poured fresh in every cup." 🍵✨
+          </p>
+
+          <div class="flex flex-wrap gap-4 items-center mb-10">
+            <a href="#signature-boba" class="btn-japandi inline-flex items-center gap-2 bg-midnightnavy-800 hover:bg-midnightnavy-900 dark:bg-matchasage-600 dark:hover:bg-matchasage-700 text-white font-mono text-xs font-bold uppercase tracking-wider px-8 py-4 rounded-full shadow-lg">
+              <i data-lucide="book-open" class="w-4 h-4 text-sakurapink-400 dark:text-white"></i> Explore Ledger Menu
+            </a>
+            <a href="tel:9072039789" class="btn-japandi inline-flex items-center gap-2 bg-[var(--surface)] border border-[var(--border)] font-mono text-xs font-bold uppercase tracking-wider px-7 py-4 rounded-full hover:bg-black/5 dark:hover:bg-white/5 transition-colors">
+              <i data-lucide="phone" class="w-4 h-4 text-matchasage-600"></i> Express Pickup
+            </a>
+          </div>
+
+          <!-- 4 Japandi Badges -->
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 font-mono text-xs border-t border-[var(--border)] pt-8">
+            <div class="p-3 rounded-2xl bg-[var(--surface)] border border-[var(--border)]">
+              <span class="font-bold block text-matchasage-600 dark:text-matchasage-400">🍵 Ceremonial Matcha</span>
+              <span class="text-[10px] text-[var(--text-muted)]">Layered cloud lattes</span>
+            </div>
+            <div class="p-3 rounded-2xl bg-[var(--surface)] border border-[var(--border)]">
+              <span class="font-bold block text-solaramber-600">🍰 Handmade Crepes</span>
+              <span class="text-[10px] text-[var(--text-muted)]">Mille-crepe delicate layers</span>
+            </div>
+            <div class="p-3 rounded-2xl bg-[var(--surface)] border border-[var(--border)]">
+              <span class="font-bold block text-taroblush-600">🧋 Artisanal Boba</span>
+              <span class="text-[10px] text-[var(--text-muted)]">Slow-cooked brown sugar</span>
+            </div>
+            <div class="p-3 rounded-2xl bg-[var(--surface)] border border-[var(--border)]">
+              <span class="font-bold block text-sakurapink-500">📞 Call-Ahead</span>
+              <span class="text-[10px] text-[var(--text-muted)]">Phone-pickup available</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 35% Right: Staggered Japanese Aesthetic Bento -->
+        <div class="lg:col-span-5 grid grid-cols-2 gap-4">
+          <!-- Main Hero Tile: Matcha Latte Cloud Cup -->
+          <div class="col-span-2 rounded-3xl overflow-hidden border border-[var(--border)] bg-[var(--surface)] shadow-xl relative group cursor-pointer" onclick="openLightbox('./images/layered-matcha-latte-cloud-cup.jpg', 'Layered Ceremonial Matcha Cloud', 'Layered ceremonial green matcha latte over creamy white milk in a sealed boba cup stamped with the white Hana logo.')">
+            <img src="./images/layered-matcha-latte-cloud-cup.jpg" onerror="this.src='https://images.unsplash.com/photo-1517701550927-30cf4ba1dba5?w=900&auto=format&fit=crop&q=80'" alt="Layered Matcha Latte Cloud Cup" class="w-full h-80 object-cover rounded-2xl group-hover:scale-105 transition-transform duration-700">
+            <div class="absolute bottom-4 left-4 right-4 p-3.5 rounded-xl bg-midnightnavy-900/90 modal-backdrop-blur text-white flex justify-between items-center text-xs font-mono">
+              <span>Ceremonial Matcha Cloud</span>
+              <span class="text-matchasage-400 font-bold">SIGNATURE</span>
+            </div>
+          </div>
+
+          <!-- Sub Tile 1: Homemade Bakery Trio -->
+          <div class="rounded-2xl overflow-hidden border border-[var(--border)] bg-[var(--surface)] p-2 shadow-md cursor-pointer group" onclick="openLightbox('./images/homemade-bakery-tiramisu-crepe-cake.jpg', 'Homemade Patisserie Trio', 'Square cocoa-dusted Tiramisu, mango passionfruit panna cotta, and layered Mille-Crepe cake with strawberry coulis.')">
+            <img src="./images/homemade-bakery-tiramisu-crepe-cake.jpg" onerror="this.src='https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=900&auto=format&fit=crop&q=80'" alt="Homemade Bakery Tiramisu and Crepe Cake" class="w-full h-36 object-cover rounded-xl group-hover:scale-105 transition-transform duration-500">
+            <p class="font-mono text-[10px] font-bold text-[var(--text-muted)] mt-1.5 px-1">French-Asian Patisserie</p>
+          </div>
+
+          <!-- Sub Tile 2: Grape Lychee Smoothie -->
+          <div class="rounded-2xl overflow-hidden border border-[var(--border)] bg-[var(--surface)] p-2 shadow-md cursor-pointer group" onclick="openLightbox('./images/grape-tea-smoothie-lychee-jelly.jpg', 'Grape Tea Smoothie w/ Lychee Jelly', 'Layered purple jasmine grape smoothie in a boba cup on a wooden tray surrounded by fresh green grapes and chewy lychee jelly.')">
+            <img src="./images/grape-tea-smoothie-lychee-jelly.jpg" onerror="this.src='https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?w=900&auto=format&fit=crop&q=80'" alt="Grape Tea Smoothie Lychee Jelly" class="w-full h-36 object-cover rounded-xl group-hover:scale-105 transition-transform duration-500">
+            <p class="font-mono text-[10px] font-bold text-[var(--text-muted)] mt-1.5 px-1">Grape Lychee Slush</p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============ LIVE TEA HOUSE DISPATCH RIBBON ============ -->
+  <div class="bg-[var(--surface)] border-b border-[var(--border)] py-3 font-mono text-xs tracking-wider uppercase font-semibold">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-wrap items-center justify-between gap-4">
+      <div class="flex items-center gap-2.5">
+        <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-ping"></span>
+        <span id="liveTeaHouseStatus">Wasilla AKST Tea Salon Radar</span>
+      </div>
+      <div class="flex items-center gap-6 text-[11px] text-[var(--text-muted)]">
+        <span>Mon–Fri: 11:00 AM – 7:00 PM</span>
+        <span>Saturday & Sunday: 11:00 AM – 6:00 PM</span>
+        <span class="text-matchasage-600 dark:text-matchasage-400 font-bold">609 S Knik Goose Bay Rd</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ SECTION 01: THE BOBA & PATISSERIE LEDGER ============ -->
+  <section id="signature-boba" class="py-24 border-b border-[var(--border)]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+        <div>
+          <span class="text-xs font-mono font-bold tracking-[0.25em] uppercase text-matchasage-600 dark:text-matchasage-400 block mb-2">// THE BOTANICAL LEDGER</span>
+          <h2 class="font-outfit font-bold text-4xl sm:text-5xl tracking-tight text-[var(--text)]">Artisanal Boba & Sips</h2>
+        </div>
+        <p class="text-sm font-mono text-[var(--text-muted)] max-w-md">
+          Meticulously crafted layered matchas, slow-cooked brown sugar boba, and seasonal fruit purees. Available in 16oz Regular and 24oz Large.
+        </p>
+      </div>
+
+      <!-- Menu Category Tabs -->
+      <div class="flex flex-wrap gap-2.5 mb-10 border-b border-[var(--border)] pb-4 font-mono text-xs font-bold" id="menuTabStrip">
+        <button onclick="switchCategory('boba')" id="tab-boba" class="px-5 py-2.5 rounded-full bg-midnightnavy-800 dark:bg-matchasage-600 text-white transition-all">01. Signature Milk Teas & Boba</button>
+        <button onclick="switchCategory('matcha')" id="tab-matcha" class="px-5 py-2.5 rounded-full bg-[var(--surface)] border border-[var(--border)] text-[var(--text)] hover:border-matchasage-500 transition-all">02. Layered Matcha & Fruit Teas</button>
+        <button onclick="switchCategory('slushies')" id="tab-slushies" class="px-5 py-2.5 rounded-full bg-[var(--surface)] border border-[var(--border)] text-[var(--text)] hover:border-matchasage-500 transition-all">03. Seasonal Slushies & June Specials</button>
+      </div>
+
+      <!-- Dynamic Menu Ledger Cards -->
+      <div id="ledgerContent" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 font-mono text-xs">
+        <!-- JavaScript dynamically injects ledger rows -->
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============ SECTION 02: HOMEMADE BAKERY & PATISSERIE TRIO ============ -->
+  <section id="patisserie" class="py-24 border-b border-[var(--border)] bg-[var(--surface)]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+        <div>
+          <span class="text-xs font-mono font-bold tracking-[0.25em] uppercase text-solaramber-600 block mb-2">// SCRATCH DESSERT LABORATORY</span>
+          <h2 class="font-outfit font-bold text-4xl sm:text-5xl tracking-tight text-[var(--text)]">Homemade French-Asian Patisserie</h2>
+        </div>
+        <p class="text-sm font-mono text-[var(--text-muted)] max-w-md">
+          Delicate, perfectly balanced desserts handcrafted daily. Experience our signature twenty-layer Mille-Crepe cakes and traditional Italian Tiramisu.
+        </p>
+      </div>
+
+      <!-- Patisserie Bento Grid -->
+      <div class="grid md:grid-cols-3 gap-8">
+        
+        <!-- Mille-Crepe Cake -->
+        <div class="p-6 rounded-3xl border-2 border-matchasage-500 bg-[var(--bg)] flex flex-col justify-between shadow-md relative overflow-hidden group">
+          <div class="absolute top-0 right-0 bg-matchasage-600 text-white font-mono text-[9px] font-bold uppercase px-3 py-1 rounded-bl-xl tracking-widest">
+            #01 SIGNATURE
+          </div>
+          <div>
+            <div class="flex justify-between items-start mb-2 font-mono">
+              <span class="text-[10px] font-bold uppercase text-matchasage-600 dark:text-matchasage-400">LAYERED CREPES</span>
+              <span class="font-bold text-lg text-solaramber-600">$7.50</span>
+            </div>
+            <h3 class="font-serif font-bold text-2xl mb-2">Layered Mille-Crepe Cake</h3>
+            <p class="text-xs text-[var(--text-muted)] leading-relaxed">
+              Twenty paper-thin delicate crepe layers filled with light, barely-sweet French cream. Served with a ceramic boat of vibrant house-made strawberry coulis.
+            </p>
+          </div>
+          <button onclick="addPastryToSlip('Layered Mille-Crepe Cake w/ Strawberry Sauce', 7.50, 'Patisserie')" class="btn-japandi mt-6 w-full py-3 rounded-full bg-midnightnavy-800 dark:bg-matchasage-600 hover:bg-midnightnavy-900 dark:hover:bg-matchasage-700 text-white font-mono text-xs font-bold uppercase tracking-wider">
+            Add to Hana's Slip ($7.50)
+          </button>
+        </div>
+
+        <!-- Italian Tiramisu -->
+        <div class="p-6 rounded-3xl border border-[var(--border)] bg-[var(--bg)] flex flex-col justify-between hover:border-matchasage-500 transition-colors shadow-sm">
+          <div>
+            <div class="flex justify-between items-start mb-2 font-mono">
+              <span class="text-[10px] font-bold uppercase bg-black/5 dark:bg-white/5 text-[var(--text-muted)] px-2 py-0.5 rounded">CLASSIC ITALIAN</span>
+              <span class="font-bold text-lg text-solaramber-600">$6.50</span>
+            </div>
+            <h3 class="font-serif font-bold text-2xl mb-2">Traditional Tiramisu</h3>
+            <p class="text-xs text-[var(--text-muted)] leading-relaxed">
+              Delicate, airy layers of artisanal espresso-soaked sponge cake and rich whipped mascarpone cream, elegantly dusted with dark French cocoa powder.
+            </p>
+          </div>
+          <button onclick="addPastryToSlip('Traditional Italian Tiramisu', 6.50, 'Patisserie')" class="btn-japandi mt-6 w-full py-3 rounded-full border border-[var(--border)] font-mono text-xs font-bold uppercase hover:bg-midnightnavy-800 dark:hover:bg-matchasage-600 hover:text-white">
+            Add to Hana's Slip ($6.50)
+          </button>
+        </div>
+
+        <!-- Mango Passionfruit Panna Cotta -->
+        <div class="p-6 rounded-3xl border border-[var(--border)] bg-[var(--bg)] flex flex-col justify-between hover:border-matchasage-500 transition-colors shadow-sm">
+          <div>
+            <div class="flex justify-between items-start mb-2 font-mono">
+              <span class="text-[10px] font-bold uppercase bg-solaramber-500/10 text-solaramber-600 px-2 py-0.5 rounded">FRUITY & SILKY</span>
+              <span class="font-bold text-lg text-solaramber-600">$5.75</span>
+            </div>
+            <h3 class="font-serif font-bold text-2xl mb-2">Mango Passion Panna Cotta</h3>
+            <p class="text-xs text-[var(--text-muted)] leading-relaxed">
+              Silky, perfectly set vanilla bean panna cotta cup topped with a vibrant, tart, and tropical mango passionfruit fruit jelly layer.
+            </p>
+          </div>
+          <button onclick="addPastryToSlip('Mango Passionfruit Panna Cotta', 5.75, 'Patisserie')" class="btn-japandi mt-6 w-full py-3 rounded-full border border-[var(--border)] font-mono text-xs font-bold uppercase hover:bg-midnightnavy-800 dark:hover:bg-matchasage-600 hover:text-white">
+            Add to Hana's Slip ($5.75)
+          </button>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============ SECTION 03: 10-IMAGE ARCHIVE BENTO GALLERY ============ -->
+  <section id="gallery" class="py-24 border-b border-[var(--border)] bg-[var(--bg)]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+        <div>
+          <span class="text-xs font-mono font-bold tracking-[0.25em] uppercase text-matchasage-600 dark:text-matchasage-400 block mb-2">// 609 S KNIK GOOSE BAY ARCHIVE</span>
+          <h2 class="font-outfit font-bold text-4xl sm:text-5xl tracking-tight text-[var(--text)]">The Zen Chronicle</h2>
+        </div>
+        <p class="text-sm font-mono text-[var(--text-muted)] max-w-xs">
+          Click any plate to inspect authentic store photography, minimalist details, and layered boba creations.
+        </p>
+      </div>
+
+      <!-- 10-Image Bento Staggered Grid (CSS Grid Approach) -->
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 auto-rows-[160px] md:auto-rows-[200px]">
+        
+        <!-- Large Tile 1: Order Counter -->
+        <div class="col-span-2 row-span-2 rounded-2xl overflow-hidden border border-[var(--border)] bg-[var(--surface)] p-2 cursor-pointer group shadow-sm" onclick="openLightbox('./images/order-counter-subway-tile-sage-wall.png', 'Subway Tile Order Counter', 'Interior view of the pristine white subway tile order counter with natural oak countertop, sage green accent wall, shoji-style window frame, and digital menu screens.')">
+          <img src="./images/order-counter-subway-tile-sage-wall.png" onerror="this.src='https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=900&auto=format&fit=crop&q=80'" alt="Subway Tile Counter" class="w-full h-[calc(100%-2rem)] object-cover rounded-xl group-hover:scale-105 transition-transform duration-500">
+          <div class="pt-2 px-1 flex justify-between items-center font-mono text-[10px] text-[var(--text-muted)] font-bold">
+            <span>[PL-01] Order Counter</span>
+            <span class="text-matchasage-600">Interior</span>
+          </div>
+        </div>
+
+        <!-- Tile 2: Storefront -->
+        <div class="col-span-2 md:col-span-1 row-span-1 rounded-2xl overflow-hidden border border-[var(--border)] bg-[var(--surface)] p-1.5 cursor-pointer group shadow-sm" onclick="openLightbox('./images/hanas-house-storefront-exterior.jpg', 'Storefront Exterior', 'Exterior day view of the clean retail storefront at 609 S Knik Goose Bay Rd with dark blue corrugated canopy and smiling logo decals.')">
+          <img src="./images/hanas-house-storefront-exterior.jpg" onerror="this.src='https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=900&auto=format&fit=crop&q=80'" alt="Storefront Exterior" class="w-full h-[calc(100%-1.75rem)] object-cover rounded-xl group-hover:scale-105 transition-transform duration-500">
+          <p class="font-mono text-[9px] font-bold text-center text-[var(--text-muted)] pt-1.5">Storefront</p>
+        </div>
+
+        <!-- Tile 3: Smiling Chef Logo -->
+        <div class="col-span-2 md:col-span-1 row-span-1 rounded-2xl overflow-hidden border border-[var(--border)] bg-[var(--surface)] p-1.5 cursor-pointer group shadow-sm" onclick="openLightbox('./images/hana-smiling-chef-logo-shelf.jpg', 'Hana Chef Mascot Shelf', 'Close-up of the white 3D cutout mascot wall relief of Hana with rosy red cheeks above an oak floating shelf displaying lucky Maneki-neko ceramic figurines.')">
+          <img src="./images/hana-smiling-chef-logo-shelf.jpg" onerror="this.src='https://images.unsplash.com/photo-1559925393-8be0ec4767c8?w=900&auto=format&fit=crop&q=80'" alt="Smiling Chef Mascot" class="w-full h-[calc(100%-1.75rem)] object-cover rounded-xl group-hover:scale-105 transition-transform duration-500">
+          <p class="font-mono text-[9px] font-bold text-center text-[var(--text-muted)] pt-1.5">Chef Mascot</p>
+        </div>
+
+        <!-- Tile 4: Glass Bakery Display -->
+        <div class="col-span-2 md:col-span-2 row-span-1 rounded-2xl overflow-hidden border border-[var(--border)] bg-[var(--surface)] p-1.5 cursor-pointer group shadow-sm" onclick="openLightbox('./images/counter-full-view-glass-bakery-display.jpg', 'Glass Bakery Display', 'Wide perspective of the order counter featuring the refrigerated glass bakery display case filled with homemade Asian pastries.')">
+          <img src="./images/counter-full-view-glass-bakery-display.jpg" onerror="this.src='https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=900&auto=format&fit=crop&q=80'" alt="Bakery Display" class="w-full h-[calc(100%-1.75rem)] object-cover rounded-xl group-hover:scale-105 transition-transform duration-500">
+          <p class="font-mono text-[9px] font-bold text-center text-[var(--text-muted)] pt-1.5">Bakery Case</p>
+        </div>
+
+        <!-- Tile 5: Matcha Cloud Latte -->
+        <div class="col-span-1 row-span-1 rounded-2xl overflow-hidden border border-[var(--border)] bg-[var(--surface)] p-1.5 cursor-pointer group shadow-sm" onclick="openLightbox('./images/layered-matcha-latte-cloud-cup.jpg', 'Layered Ceremonial Matcha Cloud', 'Layered ceremonial green matcha latte over creamy white milk in a sealed boba cup stamped with the white Hana logo.')">
+          <img src="./images/layered-matcha-latte-cloud-cup.jpg" onerror="this.src='https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=900&auto=format&fit=crop&q=80'" alt="Matcha Cloud" class="w-full h-[calc(100%-1.75rem)] object-cover rounded-xl group-hover:scale-105 transition-transform duration-500">
+          <p class="font-mono text-[9px] font-bold text-center text-[var(--text-muted)] pt-1.5">Matcha Cloud</p>
+        </div>
+
+        <!-- Tile 6: Grape Tea Smoothie -->
+        <div class="col-span-1 row-span-1 rounded-2xl overflow-hidden border border-[var(--border)] bg-[var(--surface)] p-1.5 cursor-pointer group shadow-sm" onclick="openLightbox('./images/grape-tea-smoothie-lychee-jelly.jpg', 'Grape Tea Smoothie w/ Lychee Jelly', 'Layered purple jasmine grape smoothie in a boba cup on a wooden tray surrounded by fresh green grapes and chewy lychee jelly.')">
+          <img src="./images/grape-tea-smoothie-lychee-jelly.jpg" onerror="this.src='https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=900&auto=format&fit=crop&q=80'" alt="Grape Tea Smoothie" class="w-full h-[calc(100%-1.75rem)] object-cover rounded-xl group-hover:scale-105 transition-transform duration-500">
+          <p class="font-mono text-[9px] font-bold text-center text-[var(--text-muted)] pt-1.5">Grape Lychee</p>
+        </div>
+
+        <!-- Tile 7: Strawberry Tea Boat -->
+        <div class="col-span-2 row-span-1 rounded-2xl overflow-hidden border border-[var(--border)] bg-[var(--surface)] p-1.5 cursor-pointer group shadow-sm" onclick="openLightbox('./images/strawberry-fruit-tea-lake-boat.jpg', 'Strawberry Fruit Tea on Lake', 'Sealed clear boba cup with vibrant red strawberry/hibiscus tea and black straw held over sparkling Alaskan lake waters on a pontoon boat.')">
+          <img src="./images/strawberry-fruit-tea-lake-boat.jpg" onerror="this.src='https://images.unsplash.com/photo-1517701550927-30cf4ba1dba5?w=900&auto=format&fit=crop&q=80'" alt="Lake Boat Tea" class="w-full h-[calc(100%-1.75rem)] object-cover rounded-xl group-hover:scale-105 transition-transform duration-500">
+          <p class="font-mono text-[9px] font-bold text-center text-[var(--text-muted)] pt-1.5">Summer Refreshment</p>
+        </div>
+
+        <!-- Tile 8: Homemade Bakery Mix -->
+        <div class="col-span-1 row-span-1 rounded-2xl overflow-hidden border border-[var(--border)] bg-[var(--surface)] p-1.5 cursor-pointer group shadow-sm" onclick="openLightbox('./images/homemade-bakery-tiramisu-crepe-cake.jpg', 'Homemade Patisserie Trio', 'Square cocoa-dusted Tiramisu on white ceramic plate, mango passionfruit panna cotta, and slice of layered Mille-Crepe cake.')">
+          <img src="./images/homemade-bakery-tiramisu-crepe-cake.jpg" onerror="this.src='https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?w=900&auto=format&fit=crop&q=80'" alt="Homemade Patisserie Trio" class="w-full h-[calc(100%-1.75rem)] object-cover rounded-xl group-hover:scale-105 transition-transform duration-500">
+          <p class="font-mono text-[9px] font-bold text-center text-[var(--text-muted)] pt-1.5">Patisserie Trio</p>
+        </div>
+
+        <!-- Tile 9: Phone Order Graphic -->
+        <div class="col-span-1 row-span-1 rounded-2xl overflow-hidden border border-[var(--border)] bg-[var(--surface)] p-1.5 cursor-pointer group shadow-sm" onclick="openLightbox('./images/phone-call-pickup-orders-graphic.jpg', 'Phone-Call Pickup Orders', 'Official social announcement showing a cute pink vintage telephone receiver with Phone-call pickup orders now available! 907-203-9789.')">
+          <img src="./images/phone-call-pickup-orders-graphic.jpg" onerror="this.src='https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?w=900&auto=format&fit=crop&q=80'" alt="Phone Order Graphic" class="w-full h-[calc(100%-1.75rem)] object-cover rounded-xl group-hover:scale-105 transition-transform duration-500">
+          <p class="font-mono text-[9px] font-bold text-center text-[var(--text-muted)] pt-1.5">Pickup Available</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SECTION 05: COMMUNITY REVIEWS ============ -->
+  <section class="py-24 border-b border-[var(--border)] bg-[var(--surface)]">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <span class="text-xs font-mono font-bold tracking-[0.25em] uppercase text-matchasage-600 dark:text-matchasage-400 block mb-2">// 5-STAR MAT-SU PRAISE</span>
+      <h2 class="font-outfit font-bold text-4xl tracking-tight mb-12 text-[var(--text)]">Notes from Our Guests</h2>
+
+      <div class="p-8 sm:p-12 rounded-3xl border border-[var(--border)] bg-[var(--bg)] shadow-sm">
+        <div class="flex justify-center text-solaramber-500 gap-1.5 mb-6">
+          <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+          <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+          <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+          <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+          <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+        </div>
+        <p class="font-serif text-xl sm:text-2xl leading-relaxed mb-6 text-[var(--text)] font-normal italic">
+          "The brown sugar boba pearls are slow-cooked to absolute perfection, and the layered ceremonial matcha is the best in Wasilla. Stepping into their clean, serene sage-green cafe feels like a breath of fresh air, and the Mille-Crepe cake is simply divine!"
+        </p>
+        <p class="font-mono text-xs uppercase tracking-widest text-[var(--text-muted)] font-bold">
+          — Sarah & David T., Wasilla Locals
+        </p>
+      </div>
+
+      <div class="flex justify-center gap-4 mt-8 font-mono text-xs font-bold">
+        <a href="https://www.instagram.com/Hanashouse.ak" target="_blank" rel="noopener" class="btn-japandi inline-flex items-center gap-2 border border-[var(--border)] px-6 py-3 rounded-full bg-[var(--surface)] hover:border-matchasage-500">
+          <i data-lucide="instagram" class="w-4 h-4 text-sakurapink-500"></i> Follow @Hanashouse.ak
+        </a>
+        <a href="https://maps.app.goo.gl/PtqmtyLZZp7rpV2ZA" target="_blank" rel="noopener" class="btn-japandi inline-flex items-center gap-2 border border-[var(--border)] px-6 py-3 rounded-full bg-[var(--surface)] hover:border-solaramber-500">
+          <i data-lucide="map-pin" class="w-4 h-4 text-solaramber-600"></i> Google Reviews
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SECTION 06: LOCATION, LIVE HOURS & PHONE PICKUP ============ -->
+  <section id="dispatch" class="py-24 border-b border-[var(--border)] bg-[var(--bg)]">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-2 gap-12 items-center">
+      
+      <div>
+        <span class="text-xs font-mono font-bold tracking-[0.25em] uppercase text-matchasage-600 dark:text-matchasage-400 block mb-2">// KNIK GOOSE BAY ACCESS</span>
+        <h2 class="font-outfit font-bold text-4xl tracking-tight mb-6 text-[var(--text)]">609 S Knik Goose Bay Rd</h2>
+        
+        <p class="text-[var(--text-muted)] text-sm mb-6 leading-relaxed font-normal">
+          Conveniently located in STE F on S Knik Goose Bay Road. Enjoy our soothing Japandi lounge with Eames-style seating, or call ahead for seamless express phone-order pickup!
+        </p>
+
+        <!-- Hours Schedule Table -->
+        <div class="border border-[var(--border)] rounded-2xl p-5 bg-[var(--surface)] font-mono text-xs mb-8 space-y-2.5">
+          <div class="flex justify-between pb-2 border-b border-[var(--border)]">
+            <span class="font-bold">Monday – Friday</span>
+            <span class="text-matchasage-600 dark:text-matchasage-400 font-bold">11:00 AM – 7:00 PM</span>
+          </div>
+          <div class="flex justify-between">
+            <span class="font-bold text-sakurapink-500">Saturday & Sunday</span>
+            <span>11:00 AM – 6:00 PM</span>
+          </div>
+        </div>
+
+        <div class="flex flex-wrap gap-4 font-mono text-xs font-bold">
+          <a href="https://maps.app.goo.gl/PtqmtyLZZp7rpV2ZA" target="_blank" rel="noopener" class="btn-japandi inline-flex items-center gap-2 bg-midnightnavy-800 dark:bg-matchasage-600 hover:bg-midnightnavy-900 dark:hover:bg-matchasage-700 text-white px-8 py-4 rounded-full uppercase tracking-wider shadow-md">
+            <i data-lucide="navigation" class="w-4 h-4"></i> Get Map Directions
+          </a>
+          <a href="tel:9072039789" class="btn-japandi inline-flex items-center gap-2 border border-[var(--border)] px-7 py-4 rounded-full uppercase tracking-wider hover:bg-black/5 dark:hover:bg-white/5 bg-[var(--surface)]">
+            <i data-lucide="phone" class="w-4 h-4 text-matchasage-600"></i> Call (907) 203-9789
+          </a>
+        </div>
+      </div>
+
+      <!-- Hours Graphic Box -->
+      <div class="rounded-3xl overflow-hidden border border-[var(--border)] bg-[var(--surface)] p-2.5 shadow-xl h-[440px]">
+        <img src="./images/hanas-house-operating-hours-sign.jpg" onerror="this.src='https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=900&auto=format&fit=crop&q=80'" alt="Hana's House Operating Hours Sign" class="w-full h-full object-contain rounded-2xl">
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="py-16 bg-[var(--surface)] text-xs font-mono text-[var(--text-muted)] border-t border-[var(--border)]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
+      
+      <div class="flex items-center gap-3">
+        <div class="w-9 h-9 rounded-full border border-matchasage-500 flex items-center justify-center font-serif font-bold text-xs text-matchasage-600 dark:text-matchasage-400">
+          HH
+        </div>
+        <div>
+          <span class="font-outfit font-bold text-base text-[var(--text)]">Hana's House</span>
+          <p class="text-[10px] text-[var(--text-muted)]">609 S Knik Goose Bay Rd, STE F, Wasilla, AK • (907) 203-9789</p>
+        </div>
+      </div>
+
+      <div class="flex flex-wrap items-center gap-6 font-mono uppercase tracking-wider text-xs">
+        <a href="#signature-boba" class="hover:text-matchasage-600">Bubble Tea</a>
+        <a href="#layered-matcha" class="hover:text-matchasage-600">Matcha</a>
+        <a href="#summer-slushies" class="hover:text-matchasage-600">Slushies</a>
+        <a href="#patisserie" class="hover:text-matchasage-600">Patisserie</a>
+        <a href="https://maps.app.goo.gl/PtqmtyLZZp7rpV2ZA" target="_blank" class="hover:text-matchasage-600">Map</a>
+      </div>
+
+      <p>© <span id="footerYear">2026</span> Hana's House. Artisanal Asian Patisserie.</p>
+    </div>
+  </footer>
+
+  <!-- ============ BOBA CUSTOMIZER MODAL (WITH FROST BLUR BACKDROP) ============ -->
+  <div id="customizerModal" class="hidden fixed inset-0 z-50 modal-backdrop-blur bg-black/65 items-center justify-center p-4">
+    <div class="bg-[var(--surface)] max-w-lg w-full rounded-3xl border border-[var(--border)] p-6 sm:p-8 relative shadow-2xl max-h-[90vh] overflow-y-auto">
+      <button onclick="closeCustomizerModal()" class="absolute top-6 right-6 w-8 h-8 rounded-full border border-[var(--border)] flex items-center justify-center hover:bg-black/5 dark:hover:bg-white/5 transition-colors">
+        <i data-lucide="x" class="w-4 h-4"></i>
+      </button>
+
+      <span class="text-[10px] font-mono font-bold uppercase text-matchasage-600 dark:text-matchasage-400 tracking-widest">HANA'S CUSTOMIZER STUDIO</span>
+      <h3 id="modalItemTitle" class="font-outfit font-bold text-2xl sm:text-3xl mt-1 mb-1 text-[var(--text)]"></h3>
+      <p id="modalItemDescription" class="text-xs text-[var(--text-muted)] mb-6 font-normal leading-relaxed"></p>
+
+      <div class="space-y-5 border-t border-[var(--border)] pt-5 mb-6 font-mono text-xs">
+        
+        <!-- Sizing Grid -->
+        <div>
+          <label class="font-bold uppercase tracking-wider text-[var(--text-muted)] block mb-2">Cup Size</label>
+          <div class="grid grid-cols-2 gap-2 text-center" id="modalSizeRow">
+            <label class="relative cursor-pointer">
+              <input type="radio" name="modalSize" value="16oz" data-price="0" checked class="selector-radio hidden">
+              <div class="border border-[var(--border)] p-2.5 rounded-xl hover:bg-black/5 transition-colors">
+                <span class="font-bold block text-[11px]">16oz Regular</span>
+                <span class="text-[9px] text-[var(--text-muted)]">Base Price</span>
+              </div>
+            </label>
+            <label class="relative cursor-pointer">
+              <input type="radio" name="modalSize" value="24oz" data-price="1.00" class="selector-radio hidden">
+              <div class="border border-[var(--border)] p-2.5 rounded-xl hover:bg-black/5 transition-colors">
+                <span class="font-bold block text-[11px]">24oz Large</span>
+                <span class="text-[9px] text-[var(--text-muted)]">+$1.00</span>
+              </div>
+            </label>
+          </div>
+        </div>
+
+        <!-- Sweetness & Ice Levels -->
+        <div class="grid grid-cols-2 gap-4">
+          <div>
+            <label class="font-bold uppercase tracking-wider text-[var(--text-muted)] block mb-2">Sweetness</label>
+            <select id="sweetnessLevel" class="w-full border border-[var(--border)] bg-[var(--surface)] text-[var(--text)] p-2 rounded-xl focus:outline-none focus:ring-2 focus:ring-matchasage-500 cursor-pointer">
+              <option value="100%">100% Regular Sweet</option>
+              <option value="70%">70% Less Sweet</option>
+              <option value="50%">50% Half Sweet</option>
+              <option value="30%">30% Mild Sweet</option>
+              <option value="0%">0% Unsweetened</option>
+            </select>
+          </div>
+          <div>
+            <label class="font-bold uppercase tracking-wider text-[var(--text-muted)] block mb-2">Ice Level</label>
+            <select id="iceLevel" class="w-full border border-[var(--border)] bg-[var(--surface)] text-[var(--text)] p-2 rounded-xl focus:outline-none focus:ring-2 focus:ring-matchasage-500 cursor-pointer">
+              <option value="Regular Ice">Regular Ice</option>
+              <option value="Less Ice">Less Ice</option>
+              <option value="No Ice">No Ice (Chilled)</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Dairy Choices -->
+        <div>
+          <label class="font-bold uppercase tracking-wider text-[var(--text-muted)] block mb-2">Dairy Selection</label>
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-2">
+            <label class="relative cursor-pointer">
+              <input type="radio" name="modalMilk" value="Whole Milk" data-milk-add="0" checked class="selector-radio hidden">
+              <div class="border border-[var(--border)] p-1.5 rounded-xl text-center hover:bg-black/5 transition-colors">Whole</div>
+            </label>
+            <label class="relative cursor-pointer">
+              <input type="radio" name="modalMilk" value="Creamer" data-milk-add="0" class="selector-radio hidden">
+              <div class="border border-[var(--border)] p-1.5 rounded-xl text-center hover:bg-black/5 transition-colors">Creamer</div>
+            </label>
+            <label class="relative cursor-pointer">
+              <input type="radio" name="modalMilk" value="Oat Milk (+.75)" data-milk-add="0.75" class="selector-radio hidden">
+              <div class="border border-[var(--border)] p-1.5 rounded-xl text-center hover:bg-black/5 transition-colors">Oat (+.75)</div>
+            </label>
+            <label class="relative cursor-pointer">
+              <input type="radio" name="modalMilk" value="Almond (+.75)" data-milk-add="0.75" class="selector-radio hidden">
+              <div class="border border-[var(--border)] p-1.5 rounded-xl text-center hover:bg-black/5 transition-colors">Almond (+.75)</div>
+            </label>
+          </div>
+        </div>
+
+        <!-- Topping Add-ons -->
+        <div>
+          <label class="font-bold uppercase tracking-wider text-[var(--text-muted)] block mb-2">Artisanal Toppings (+$.75 each)</label>
+          <div class="space-y-2">
+            <label class="border border-[var(--border)] p-2 rounded-xl flex items-center justify-between cursor-pointer hover:bg-black/5 has-[:checked]:border-matchasage-500 has-[:checked]:bg-matchasage-500/10">
+              <div class="flex items-center gap-2">
+                <input type="checkbox" name="modalTopping" value="Brown Sugar Pearls" class="topping-check rounded text-matchasage-600 focus:ring-matchasage-600">
+                <span class="font-bold">Brown Sugar Pearls</span>
+              </div>
+            </label>
+            <label class="border border-[var(--border)] p-2 rounded-xl flex items-center justify-between cursor-pointer hover:bg-black/5 has-[:checked]:border-matchasage-500 has-[:checked]:bg-matchasage-500/10">
+              <div class="flex items-center gap-2">
+                <input type="checkbox" name="modalTopping" value="Lychee Jelly" class="topping-check rounded text-matchasage-600 focus:ring-matchasage-600">
+                <span class="font-bold">Chewy Lychee Jelly</span>
+              </div>
+            </label>
+            <label class="border border-[var(--border)] p-2 rounded-xl flex items-center justify-between cursor-pointer hover:bg-black/5 has-[:checked]:border-matchasage-500 has-[:checked]:bg-matchasage-500/10">
+              <div class="flex items-center gap-2">
+                <input type="checkbox" name="modalTopping" value="Cheese Foam" class="topping-check rounded text-matchasage-600 focus:ring-matchasage-600">
+                <span class="font-bold">Cheese Foam Float</span>
+              </div>
+            </label>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="flex justify-between items-center pt-5 border-t border-[var(--border)]">
+        <div>
+          <span class="text-[10px] font-mono uppercase text-[var(--text-muted)] block">Drink Total</span>
+          <span id="modalFinalPrice" class="font-mono text-2xl font-bold text-matchasage-600 dark:text-matchasage-400">$0.00</span>
+        </div>
+        <button onclick="confirmItemToHanasSlip()" class="btn-japandi bg-midnightnavy-800 hover:bg-midnightnavy-900 dark:bg-matchasage-600 dark:hover:bg-matchasage-700 text-white font-mono text-xs font-bold uppercase tracking-wider px-7 py-3.5 rounded-full shadow-lg">
+          Add To Slip
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ SLIDE-OUT HANA'S TICKET DRAWER (WITH FROST BLUR BACKDROP) ============ -->
+  <div id="hanasDrawer" class="hidden fixed inset-0 z-50 modal-backdrop-blur bg-black/60 flex justify-end">
+    <div class="bg-[var(--surface)] w-full max-w-md h-full border-l border-[var(--border)] p-6 sm:p-8 flex flex-col justify-between shadow-2xl">
+      <div>
+        <div class="flex justify-between items-center mb-6 pb-4 border-b border-[var(--border)]">
+          <div class="flex items-center gap-2.5">
+            <div class="w-8 h-8 rounded-full bg-sakurapink-500 text-white flex items-center justify-center font-serif font-bold text-xs">HH</div>
+            <div>
+              <h3 class="font-outfit font-bold text-xl tracking-tight text-[var(--text)]">Hana's Order Slip</h3>
+              <p class="text-[10px] font-mono text-[var(--text-muted)]">Knik Goose Bay Rd Express Dispatch</p>
+            </div>
+          </div>
+          <button onclick="toggleHanasDrawer(false)" class="w-8 h-8 rounded-full border border-[var(--border)] flex items-center justify-center hover:bg-black/5 dark:hover:bg-white/5">
+            <i data-lucide="x" class="w-4 h-4"></i>
+          </button>
+        </div>
+
+        <!-- Ticket Items Container -->
+        <div id="hanasItemsContainer" class="space-y-3 max-h-[50vh] overflow-y-auto pr-1"></div>
+      </div>
+
+      <!-- Financial Calculation -->
+      <div class="border-t border-[var(--border)] pt-6 space-y-3 font-mono text-xs">
+        <div class="flex justify-between text-[var(--text-muted)]">
+          <span>Subtotal</span>
+          <span id="hanasSubtotal">$0.00</span>
+        </div>
+        <div class="flex justify-between text-[var(--text-muted)]">
+          <span>Wasilla Sales Tax (0%)</span>
+          <span id="hanasTax">$0.00</span>
+        </div>
+        <div class="flex justify-between font-outfit font-bold text-2xl pt-2 border-t border-[var(--border)] text-[var(--text)]">
+          <span>Total</span>
+          <span id="hanasGrandTotal" class="text-matchasage-600 dark:text-matchasage-400 font-mono font-bold">$0.00</span>
+        </div>
+
+        <button onclick="generateHanasCode()" class="btn-japandi w-full bg-midnightnavy-800 hover:bg-midnightnavy-900 dark:bg-matchasage-600 dark:hover:bg-matchasage-700 text-white font-mono text-xs font-bold uppercase tracking-wider py-4 rounded-full shadow-xl mt-2">
+          Generate #HANA Code
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ FULLSCREEN LIGHTBOX (WITH FROST BLUR BACKDROP) ============ -->
+  <div id="lightbox" class="hidden fixed inset-0 z-[80] modal-backdrop-blur bg-black/85 items-center justify-center p-4">
+    <button onclick="closeLightbox()" class="absolute top-6 right-6 w-10 h-10 rounded-full bg-white/10 text-white flex items-center justify-center hover:bg-white/20 transition-colors">
+      <i data-lucide="x" class="w-5 h-5"></i>
+    </button>
+    <div class="max-w-4xl w-full text-center">
+      <img id="lightboxImg" src="" alt="" class="max-h-[72vh] mx-auto rounded-2xl object-contain mb-4 border border-[var(--border)] shadow-2xl">
+      <h3 id="lightboxTitle" class="font-outfit font-bold text-2xl text-white"></h3>
+      <p id="lightboxDescription" class="text-white/70 text-xs font-mono mt-1 max-w-lg mx-auto leading-relaxed"></p>
+    </div>
+  </div>
+
+  <!-- ============ JAVASCRIPT STATE ENGINE ============ -->
+  <script>
+    // Authentic Catalog Database
+    const hanasMenu = {
+      boba: [
+        { name: "Signature Brown Sugar Boba Milk", price: 6.25, desc: "Slow-simmered warm brown sugar tapioca pearls, organic whole milk or oat milk, and cream foam cap." },
+        { name: "Classic Taro Milk Tea", price: 5.75, desc: "Creamy purple taro root, black Ceylon tea, and chewy honey boba." },
+        { name: "Roasted Oolong Milk Tea", price: 5.50, desc: "Deeply roasted Taiwanese oolong with silky condensed milk." },
+        { name: "Thai Iced Tea w/ Sweet Condensed Milk", price: 5.50, desc: "Spiced black tea blend layered with sweet cream." }
+      ],
+      matcha: [
+        { name: "Ceremonial Layered Matcha Cloud", price: 6.75, desc: "High-grade Japanese green matcha whisked fresh and layered over velvety sweet milk." },
+        { name: "Strawberry Hibiscus Fruit Tea", price: 5.75, desc: "Brewed ruby hibiscus tea shaken with ripe strawberry puree and crystal boba." },
+        { name: "Passionfruit Mango Green Tea", price: 5.75, desc: "Jasmine green tea infused with tart passionfruit and sweet mango jelly." }
+      ],
+      slushies: [
+        { name: "Grape Tea Smoothie w/ Lychee Jelly", price: 7.25, desc: "Premium jasmine green tea blended with crushed grapes, layered with coconut cloud, and topped with chewy lychee jelly." },
+        { name: "Mango Creamsicle Slush", price: 6.75, desc: "Ripe mango puree blended with ice and sweet cream swirl." }
+      ]
+    };
+
+    window.addEventListener('DOMContentLoaded', () => {
+      if (window.lucide) { lucide.createIcons(); }
+      document.getElementById('footerYear').textContent = new Date().getFullYear();
+      renderBobaLedger('boba');
+    });
+
+    // Theme Switcher & Storage Persistence
+    const themeToggle = document.getElementById('themeToggle');
+    themeToggle.addEventListener('click', () => {
+      document.documentElement.classList.toggle('dark');
+      localStorage.setItem('hanas-theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+      if (window.lucide) { lucide.createIcons(); }
+    });
+    if (localStorage.getItem('hanas-theme') === 'dark' || (!localStorage.getItem('hanas-theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      document.documentElement.classList.add('dark');
+    }
+
+    // Mobile Navigation Drawer Toggle
+    const mobileNavToggle = document.getElementById('mobileNavToggle');
+    const mobileMenu = document.getElementById('mobileMenu');
+    mobileNavToggle.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+    document.querySelectorAll('.mobile-nav-link').forEach(item => {
+      item.addEventListener('click', () => mobileMenu.classList.add('hidden'));
+    });
+
+    // Real-Time Alaska Standard Time (AKST / America/Anchorage) Calculation
+    function evaluateHanasHours() {
+      const options = { timeZone: "America/Anchorage", hour12: false, weekday: 'short', hour: 'numeric', minute: 'numeric' };
+      const formatter = new Intl.DateTimeFormat([], options);
+      const parts = formatter.formatToParts(new Date());
+      
+      let dayStr = "";
+      let hour = 0;
+      let min = 0;
+
+      parts.forEach(p => {
+        if (p.type === 'weekday') dayStr = p.value;
+        if (p.type === 'hour') hour = parseInt(p.value, 10);
+        if (p.type === 'minute') min = parseInt(p.value, 10);
+      });
+
+      const curMin = hour * 60 + min;
+
+      let openMin = 11 * 60;  // 11:00 AM Mon-Fri
+      let closeMin = 19 * 60; // 7:00 PM Mon-Fri
+
+      if (dayStr === 'Sat' || dayStr === 'Sun') {
+        openMin = 11 * 60;    // 11:00 AM Sat-Sun
+        closeMin = 18 * 60;   // 6:00 PM Sat-Sun
+      }
+
+      const isOpen = (curMin >= openMin && curMin < closeMin);
+      const badge = document.getElementById('mastheadStatusBadge');
+      const ribbon = document.getElementById('liveTeaHouseStatus');
+
+      if (isOpen) {
+        badge.textContent = "Tea Room Open";
+        badge.className = "text-[9px] font-mono uppercase font-bold text-emerald-600 dark:text-emerald-400";
+        if (ribbon) ribbon.textContent = `Hana's House Active • Express Pickup Available until ${dayStr === 'Sat' || dayStr === 'Sun' ? '6:00 PM' : '7:00 PM'} AKST`;
+      } else {
+        badge.textContent = "Tea Room Closed";
+        badge.className = "text-[9px] font-mono uppercase font-bold text-sakurapink-500";
+        if (ribbon) ribbon.textContent = `Tea Room Resting for the Night • Reopens Tomorrow at 11:00 AM AKST`;
+      }
+    }
+    evaluateHanasHours();
+
+    // Menu Tab Switcher
+    function switchCategory(catKey) {
+      document.querySelectorAll('#menuTabStrip button').forEach(btn => {
+        btn.className = "px-5 py-2.5 rounded-full bg-[var(--surface)] border border-[var(--border)] text-[var(--text)] hover:border-matchasage-500 transition-all";
+      });
+      const activeBtn = document.getElementById(`tab-${catKey}`);
+      if (activeBtn) {
+        activeBtn.className = "px-5 py-2.5 rounded-full bg-midnightnavy-800 dark:bg-matchasage-600 text-white transition-all";
+      }
+      renderBobaLedger(catKey);
+    }
+
+    function renderBobaLedger(catKey) {
+      const container = document.getElementById('ledgerContent');
+      container.innerHTML = '';
+      const items = hanasMenu[catKey] || [];
+
+      items.forEach(item => {
+        const card = document.createElement('div');
+        card.className = "p-5 rounded-2xl border border-[var(--border)] bg-[var(--surface)] flex flex-col justify-between hover:border-matchasage-500 transition-all shadow-sm";
+        
+        card.innerHTML = `
+          <div>
+            <div class="flex justify-between items-start mb-2 font-mono">
+              <span class="text-[10px] font-bold uppercase text-matchasage-600 dark:text-matchasage-400">16oz Regular Base</span>
+              <span class="font-bold text-sm text-solaramber-600">$${item.price.toFixed(2)}</span>
+            </div>
+            <h4 class="font-outfit font-bold text-lg text-[var(--text)] uppercase mb-1">${item.name}</h4>
+            <p class="text-[11px] text-[var(--text-muted)] font-normal leading-relaxed">${item.desc}</p>
+          </div>
+          <button onclick="openCustomizerModal('${item.name}', ${item.price}, '${item.desc}')" class="btn-japandi mt-5 w-full py-2.5 rounded-full border border-[var(--border)] font-mono text-xs font-bold uppercase hover:bg-midnightnavy-800 dark:hover:bg-matchasage-600 hover:text-white transition-colors">
+            Customize Cup
+          </button>
+        `;
+        container.appendChild(card);
+      });
+    }
+
+    // Hana's Order Drawer State
+    let hanasSlip = [];
+    const ticketBadgeCount = document.getElementById('ticketBadgeCount');
+    const hanasDrawer = document.getElementById('hanasDrawer');
+    const hanasItemsContainer = document.getElementById('hanasItemsContainer');
+    const hanasSubtotal = document.getElementById('hanasSubtotal');
+    const hanasTax = document.getElementById('hanasTax');
+    const hanasGrandTotal = document.getElementById('hanasGrandTotal');
+
+    function toggleHanasDrawer(show) {
+      hanasDrawer.classList.toggle('hidden', !show);
+      if (window.lucide) { lucide.createIcons(); }
+    }
+    document.getElementById('openTicketBtn').addEventListener('click', () => toggleHanasDrawer(true));
+
+    // Customizer Modal State
+    const customizerModal = document.getElementById('customizerModal');
+    const modalItemTitle = document.getElementById('modalItemTitle');
+    const modalItemDescription = document.getElementById('modalItemDescription');
+    const modalFinalPrice = document.getElementById('modalFinalPrice');
+    
+    let currentDrinkBasePrice = 0;
+    let currentDrinkName = "";
+
+    function openCustomizerModal(name, basePrice, desc) {
+      currentDrinkName = name;
+      currentDrinkBasePrice = basePrice;
+
+      modalItemTitle.textContent = name;
+      modalItemDescription.textContent = desc;
+      
+      // Reset inputs
+      document.querySelector('input[name="modalSize"][value="16oz"]').checked = true;
+      document.querySelector('input[name="modalMilk"][value="Whole Milk"]').checked = true;
+      document.getElementById('sweetnessLevel').value = "100%";
+      document.getElementById('iceLevel').value = "Regular Ice";
+      document.querySelectorAll('.topping-check').forEach(chk => chk.checked = false);
+
+      updateModalPrice();
+      
+      document.querySelectorAll('input[name="modalSize"], input[name="modalMilk"], .topping-check').forEach(el => {
+        el.addEventListener('change', updateModalPrice);
+      });
+
+      customizerModal.classList.remove('hidden');
+      customizerModal.classList.add('flex');
+      if (window.lucide) { lucide.createIcons(); }
+    }
+
+    function closeCustomizerModal() {
+      customizerModal.classList.add('hidden');
+      customizerModal.classList.remove('flex');
+    }
+
+    function updateModalPrice() {
+      if (!currentDrinkName) return;
+      const checkedSize = document.querySelector('input[name="modalSize"]:checked');
+      let base = currentDrinkBasePrice + parseFloat(checkedSize.dataset.price);
+
+      const milkAdd = parseFloat(document.querySelector('input[name="modalMilk"]:checked').dataset.milkAdd);
+      base += milkAdd;
+
+      document.querySelectorAll('.topping-check:checked').forEach(chk => {
+        base += 0.75;
+      });
+
+      modalFinalPrice.textContent = `$${base.toFixed(2)}`;
+    }
+
+    function confirmItemToHanasSlip() {
+      if (!currentDrinkName) return;
+      const checkedSize = document.querySelector('input[name="modalSize"]:checked');
+      const sizeLabel = checkedSize.value;
+      let total = currentDrinkBasePrice + parseFloat(checkedSize.dataset.price);
+
+      const milk = document.querySelector('input[name="modalMilk"]:checked').value;
+      const milkAdd = parseFloat(document.querySelector('input[name="modalMilk"]:checked').dataset.milkAdd);
+      total += milkAdd;
+
+      const sweet = document.getElementById('sweetnessLevel').value;
+      const ice = document.getElementById('iceLevel').value;
+
+      let specs = [sizeLabel, sweet, ice, milk];
+      
+      document.querySelectorAll('.topping-check:checked').forEach(chk => {
+        total += 0.75;
+        specs.push(`+${chk.value}`);
+      });
+
+      hanasSlip.push({
+        id: Date.now(),
+        name: currentDrinkName,
+        price: total,
+        specs: specs.join(' • ')
+      });
+
+      updateSlipUI();
+      closeCustomizerModal();
+      toggleHanasDrawer(true);
+    }
+
+    function addPastryToSlip(name, price, category) {
+      hanasSlip.push({
+        id: Date.now(),
+        name: name,
+        price: parseFloat(price),
+        specs: `${category} • Handmade French-Asian Bakery`
+      });
+      updateSlipUI();
+      toggleHanasDrawer(true);
+    }
+
+    function updateSlipUI() {
+      ticketBadgeCount.textContent = hanasSlip.length;
+      hanasItemsContainer.innerHTML = '';
+      let subtotal = 0;
+
+      if (hanasSlip.length === 0) {
+        hanasItemsContainer.innerHTML = `
+          <div class="py-12 text-center text-[var(--text-muted)] font-mono text-xs">
+            <p>Your order slip is empty.</p>
+            <p class="text-[10px] mt-1">Select artisanal boba or patisserie above.</p>
+          </div>
+        `;
+      } else {
+        hanasSlip.forEach((item, index) => {
+          subtotal += item.price;
+          const row = document.createElement('div');
+          row.className = "p-3.5 rounded-2xl border border-[var(--border)] bg-[var(--bg)] flex justify-between items-start font-mono text-xs";
+          row.innerHTML = `
+            <div>
+              <p class="font-outfit font-bold text-sm text-[var(--text)] uppercase">${item.name}</p>
+              <p class="text-[10px] text-[var(--text-muted)] mt-0.5">${item.specs}</p>
+            </div>
+            <div class="flex items-center gap-3 font-bold">
+              <span>$${item.price.toFixed(2)}</span>
+              <button onclick="removeSlipItem(${index})" class="text-matchasage-600 hover:text-matchasage-700 text-sm">✕</button>
+            </div>
+          `;
+          hanasItemsContainer.appendChild(row);
+        });
+      }
+
+      hanasSubtotal.textContent = `$${subtotal.toFixed(2)}`;
+      hanasTax.textContent = `$0.00`;
+      hanasGrandTotal.textContent = `$${subtotal.toFixed(2)}`;
+    }
+
+    function removeSlipItem(index) {
+      hanasSlip.splice(index, 1);
+      updateSlipUI();
+    }
+
+    function generateHanasCode() {
+      if (hanasSlip.length === 0) {
+        alert("Your Hana's slip is empty.");
+        return;
+      }
+      const code = "#HANA-" + Math.floor(100 + Math.random() * 900);
+      alert(`🌸 HANA'S HOUSE TICKET GENERATED!\n\nPickup Code: ${code}\nTotal: ${hanasGrandTotal.textContent}\n\nCall (907) 203-9789 to place your express pickup order, or present this code at 609 S Knik Goose Bay Rd. Thank you!`);
+      hanasSlip = [];
+      updateSlipUI();
+      toggleHanasDrawer(false);
+    }
+
+    // Fullscreen Lightbox Logic
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightboxImg');
+    const lightboxTitle = document.getElementById('lightboxTitle');
+    const lightboxDescription = document.getElementById('lightboxDescription');
+
+    function openLightbox(src, title, desc) {
+      lightboxImg.src = src;
+      lightboxTitle.textContent = title;
+      lightboxDescription.textContent = desc;
+      lightbox.classList.remove('hidden');
+      lightbox.classList.add('flex');
+      if (window.lucide) { lucide.createIcons(); }
+    }
+
+    function closeLightbox() {
+      lightbox.classList.add('hidden');
+      lightbox.classList.remove('flex');
+    }
+  </script>
+</body>
+</html>
